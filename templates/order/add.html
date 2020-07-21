@@ -1,0 +1,142 @@
+{{define "order/add.html"}}
+<!DOCTYPE html>
+<html>
+  
+  <head>
+    <meta charset="UTF-8">
+    <title>{{.title}}</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="../../static/admin/css/font.css">
+    <link rel="stylesheet" href="../../static/admin/css/xadmin.css">
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../../static/admin/lib/layui/layui.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../static/admin/js/xadmin.js"></script>
+    <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+      <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  
+  <body>
+    <div class="x-body">
+        <form class="layui-form">
+          <div class="layui-form-item">
+              <label for="username" class="layui-form-label">
+                  <span class="x-red">*</span>订单号
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="num" name="num" required="" lay-verify="required"
+                  autocomplete="off" class="layui-input">
+              </div>
+          </div>
+          <div class="layui-form-item">
+              <label for="username" class="layui-form-label">
+                  <span class="x-red">*</span>身份证
+              </label>
+              <div class="layui-input-inline">
+                  <input type="text" id="idCard" name="idCard" required="" lay-verify="required"
+                  autocomplete="off" class="layui-input">
+              </div>
+          </div>
+            <div class="layui-form-item">
+                <label for="username" class="layui-form-label">
+                    <span class="x-red">*</span>orderNo
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="orderNo" name="orderNo" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="username" class="layui-form-label">
+                    <span class="x-red">*</span>rcptNo
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="rcptNo" name="rcptNo" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="username" class="layui-form-label">
+                    <span class="x-red">*</span>transNo
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="transNo" name="transNo" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label for="username" class="layui-form-label">
+                    <span class="x-red">*</span>bill
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" id="bill" name="bill" required="" lay-verify="required"
+                           autocomplete="off" class="layui-input">
+                </div>
+            </div>
+          <div class="layui-form-item">
+              <label for="username" class="layui-form-label">
+                  <span class="x-red">*</span>类型
+              </label>
+              <div class="layui-input-inline">
+                  <select name="type">
+                    <option value="0">门诊</option>
+                    <option value="1">体检</option>
+                    <option value="2">疫苗</option>
+                    <option value="3">团检</option>
+                  </select>
+              </div>
+          </div>
+      </form>
+        <div class="layui-form-item">
+            <label for="L_repass" class="layui-form-label">
+            </label>
+            <button  class="layui-btn" onclick="goProcess()">
+                增加
+            </button>
+        </div>
+    </div>
+    <script>
+        function goProcess() {
+            var num = $("#num").val()
+            var idCard = $("#idCard").val()
+            var rcptNo = $("#rcptNo").val()
+            var orderNo = $("#orderNo").val()
+            var transNo = $("#transNo").val()
+            var bill = $("#bill").val()
+            var type = $("#type").val()
+            var data = {num, idCard, orderNo, rcptNo, transNo, bill, type}
+            console.log(data);
+            $.ajax({
+                type: 'POST',
+                url: "/order/addHandle",
+                data: data,
+                success: function (ret) {
+                    console.log(ret);
+                    if (ret.status != 1){
+                        layer.msg(ret.msg,{icon:6,time:5000});
+                        location.reload()
+                    }else {
+                        layer.msg(ret.msg.Message,{icon:2,time:5000});
+                    }
+                },
+                error: function (ret) {
+                    layer.msg(ret.msg,{icon:2,time:5000});
+                }
+            });
+        }
+    </script>
+    <script>var _hmt = _hmt || []; (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?b393d153aeb26b46e9431fabaf0f6190";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();</script>
+  </body>
+
+</html>
+{{end}}

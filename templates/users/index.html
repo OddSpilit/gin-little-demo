@@ -1,0 +1,134 @@
+{{define "users/index.html"}}
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Keywords" content="">
+    <meta name="description" content="">
+    <title> {{.title}} </title>
+    <link href="../../static/css/index.css" rel="stylesheet">
+    <style>.yy-clean-footer {position: fixed; z-index: 9999; bottom: 0; left: 0; width: 100%;}</style>
+    <link href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<div class="ZB-accordion" >
+    <div class="ZB-accordion__header" id="header">
+        <div class="ZB-accordion__headerCloud">
+            <div class="ZB-accordion__cloud1 layer" data-depth="0.16"></div>
+            <div class="ZB-accordion__cloud2 layer" data-depth="0.22"></div>
+            <div class="ZB-accordion__cloud3 layer" data-depth="0.10"></div>
+        </div>
+        <div class="ZB-accordion__headerCon">
+            <div class="ZB-accordion__headerLogo"></div>
+            <div class="ZB-accordion__headerWeChat">
+                <img src="../../staticimg/qrcode.png" alt="" class="ZB-accordion__headerQrCode">
+            </div>
+            <div class="ZB-accordion__headerCircle1 layer" data-depth="0.10"></div>
+            <div class="ZB-accordion__headerCircle2 layer" data-depth="0.30"></div>
+        </div>
+    </div>
+    <div class="ZB-accordion__content">
+        <div class="ZB-accordion__section ext-section1 is-active">
+            <div class="ZB-accordion__face">
+                <div class="ZB-accordion__faceCon">
+                    <div class="ZB-accordion__faceTx"></div>
+                    <i class="ZB-accordion__faceCir"></i>
+                </div>
+            </div>
+            <div class="section-content">
+                <div class="bg">
+                </div>
+                <div class="logo"></div>
+                <div class="download">
+                    <a href="https://itunes.apple.com/cn/app/bi-yi-jian-sheng-cheng-ge/id1153242305?mt=8&action=extweb">
+                        <span class="btn-ios"></span>
+                    </a>
+                    <a href="http://www.zbisq.com/upgrade/download_bi.php?lolboxAction=toExternalWebView">
+                        <span class="btn-andriod"></span>
+                    </a>
+                    <img src="../../static/img/part1/qrcode.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="ZB-accordion__section ext-section2 ">
+            <div class="section-content">
+                <div class="title"></div>
+                <div class="bg"></div>
+            </div>
+        </div>
+        <div class="ZB-accordion__section ext-section3 ">
+            <div class="section-content">
+                <div class="title"></div>
+                <div class="bg"></div>
+            </div>
+        </div>
+        <div class="ZB-accordion__section ext-section4 ">
+            <div class="section-content">
+                <div class="title"></div>
+                <div class="bg"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ZB-accordion__face">
+        <div class="ZB-accordion__faceSection ext-faceSection1 is-active ">
+            <div class="ZB-accordion__faceCon">
+                <div class="ZB-accordion__faceTx"></div>
+                <i class="ZB-accordion__faceCir"></i>
+            </div>
+        </div>
+        <div class="ZB-accordion__faceSection  ext-faceSection2">
+            <div class="ZB-accordion__faceCon">
+                <div class="ZB-accordion__faceTx"></div>
+                <i class="ZB-accordion__faceCir"></i>
+            </div>
+        </div>
+        <div class="ZB-accordion__faceSection ext-faceSection3">
+            <div class="ZB-accordion__faceCon">
+                <div class="ZB-accordion__faceTx"></div>
+                <i class="ZB-accordion__faceCir"></i>
+            </div>
+        </div>
+        <div class="ZB-accordion__faceSection ext-faceSection4">
+            <div class="ZB-accordion__faceCon">
+                <div class="ZB-accordion__faceTx"></div>
+                <i class="ZB-accordion__faceCir"></i>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="ZB-loading">
+    <div class="ZB-loading__content"></div>
+</div>
+<script src="../../static/js/index.js" charset="utf-8"></script>
+<script src="../../static/js/yyfooter-biusq.js"></script>
+<!-- <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+<script type="text/javascript">
+var html = '<div class="post"><p>欢迎使用Biu神器！</p><p class="post-strong">除非您完全接受本<a href="http://wp.zbisq.com/BiUserProtocol">用户隐私协议</a>的全部内容，否则您无权使用“biu神器”产品。若您使用“biu神器”产品，则视为您已充分理解本协议并承诺作为协议的一方当事人接受本协议的约束。</p><p id="part1"><em class="post-index">1</em>您在我们平台上注册账户或使用浏览推荐、社区相关服务时，将会提供与使用服务相关的个人信息（可能包括联络方式、位置、交易等敏感信息）；</p><p id="part1"><em class="post-index">2</em>未经您同意，我们不会出售或出租您的任何信息；</p><p id="part1"><em class="post-index">3</em>您可以对上述信息进行访问、更正、删除以及撤回同意等；</p></div>';
+bootbox.alert({
+  size: "large",
+  title: "用户隐私协议",
+  message: html,
+  callback: function(){ /* your callback code */ }
+});
+</script> -->
+
+</body>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?2106091fde7162e69ab54db7148b0012";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</html>
+{{end}}
